@@ -1,0 +1,36 @@
+﻿<Page x:Class="_UP_Luzin_321.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_UP_Luzin_321.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Панель администратора">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="DataGridUsers" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role1.Title}"/>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FIO}"/>
+                <DataGridTextColumn Header="Фото" Width="*"/>
+
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Content="Редактировать" ToolTip="Нажав на кнопку, Вы можете редактировать запись" Style="{StaticResource ButtonsForMenu}" Width="100" FontSize="12"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" x:Name="BtnAdd" Content="Добавить" HorizontalAlignment="Left" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40" ToolTip="Нажав на кнопку, Вы можете добавить запись." Width="150" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" x:Name="BtnDelete" Content="Удалить" HorizontalAlignment="Right" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40" ToolTip="Нажав на кнопку, Вы можете удалить запись." Width="150" VerticalAlignment="Center"/>
+    </Grid>
+</Page>
